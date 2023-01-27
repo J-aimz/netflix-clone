@@ -19,19 +19,18 @@ function Modal() {
   const [movieTrailerURL, setMovieTrailerURL] = useState('')
   const [mute, setMute] = useState(false)
   
-  console.log(movieData.data.original_title)
   const videoContainer = useRef('')
   const {clientHeight, clientWidth} = videoContainer.current
   useEffect(() =>{
 
     if(movieData.data != []) {
-      async function getmovieTrailer() {
-        await movieTrailer(null, {tmdbId: movieData.data.id})
+      async function getmovieTrailer(movieId) {
+        await movieTrailer(null, {tmdbId:movieId})
           .then(res => setMovieTrailerURL(res))
           
       }
 
-      getmovieTrailer()
+      getmovieTrailer(movieData.data.id)
     }
 
 
@@ -41,17 +40,24 @@ function Modal() {
     videoContainer: {
       width: clientWidth,
       heigth: clientHeight
+    },
+    modalContainer: {
+      display: movieData.openModal? 'block' : 'none'
     }
+
   }
 
-  
 
   return (
     // modal container
     <div className={`${css.con} animate-modal`} onClick={() =>{
       dispatch({type: 'openModal', payload: false});
-      dispatch({type: 'browseHeroVdieo', payload: true})
-    }} style={{visibility : movieData.openModal? 'visible' :  'hidden'}}>
+      dispatch({ type: 'browseHeroVdieo', payload: true })
+      
+    }} style={ styles.modalContainer }>
+
+      <div className={css.content_holder}>
+
 
 
       {/* modal content */}
@@ -147,7 +153,9 @@ function Modal() {
           </div>
         </div>
           
+        </div>
       </div>
+
     </div>
   )
 }

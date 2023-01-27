@@ -1,45 +1,49 @@
 @use '../../mixin.scss' as mixin;
 
-.con {
 
+
+
+.con {
     position: absolute;
     right: 0;
     left: 0;
-    bottom: 20vh;
     z-index: 20;
-    
-    padding: 4rem 0 2rem 3rem;
-    height: 45vh;
     width: 100%;
+    padding: 1rem 0 .5rem 1rem;
+    min-height: 30vh;
 
     h1 {
         color: var(--color-red);
-        text-shadow: 0px 0px 8px var(--pri-footer-color);
-        width: 30%;
-        font-size: 2rem !important;
+        text-shadow: 0px 0px 4px var(--pri-footer-color);
+        line-height: 1;
+        font-size: 1.4rem;
+        width: 60%;
     }
 
     p {
         color: #fff;
-        text-shadow: 0px 0px 6px var(--gray);
+        text-shadow: 0px 0px 4px var(--gray);
         letter-spacing: .05em;
-        width: 35%;
-        font-size: 16px;
+        font-size: 12px;
+        width: 60%;
+        line-height: .9;
+        margin-top: -.5rem;
     }
-
 }
 
 .btns__con {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: -1.5rem;
+    
 }
 
 .btn__con_LHS {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 1rem;
+    gap: .5rem;
 
     & button:nth-child(2) {
         background-color: rgba(51, 51, 51, 0.656) !important;
@@ -48,38 +52,20 @@
 }
 
 .btn {
-    padding: .2rem !important;
-    font-size: 16px;
+    font-size: 12px;
     color: var(--pri-text-color);
-    width: 150px;
-
+    padding: .2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: .5rem;
-    background-color: #fff !important;
+    gap: .2rem;
+    background-color: #fff;
+    width: 80px;
+    border-radius: 4px;
 }
 
 .icon {
-    font-size: 2rem !important;
-}
-
-.btn__con_RHS {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-}
-
-.circled {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.198);
-    border-radius: 100%;
-    padding: .5rem;
-    width: 40px;
-    height: 40px;
+    font-size: 12px !important;
 }
 
 .mute_controls {
@@ -88,83 +74,123 @@
     color: #fff;
 }
 
-.controls_btn {
+.btn__con_RHS {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .3rem;
+}
+
+.circled {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgba(255, 255, 255, 0.198);
-    padding: .5em;
+    border-radius: 100%;
+    padding: .1rem;
+    width: 40px;
+    height: 40px;
+}
+
+.controls_btn {
+    font-size: 14px;
+    padding: .3em;
+    background-color: rgba(255, 255, 255, 0.198);
     font-weight: 400;
-    font-size: 16px;
-    width: 100px;
-    border-left: 4px solid rgba(255, 255, 255, 0.463);
-    border-radius: 0 !important;
+    width: 60px;
+    border-radius: 0;
     color: #fff;
 }
 
-@include mixin.large {
-    .con {
-        bottom: 10vh;
-        height: 45vh;
-        padding: 4rem 0 2rem 2rem;
-    }
-}
 
 @include mixin.tablet {
+   
     .con {
-        bottom: 10vh;
-        height: 30vh;
-        padding: 4rem 0 2rem 2rem;
-        
+        right: 0;
+        left: 0;
+        bottom: 0vh;
+        padding: 4rem 0 2rem 2.5rem;
+        min-height: 50vh;
 
         h1 {
-            font-size: 1.8rem !important;
-            line-height: 1.1 !important;
+            text-shadow: 0px 0px 6px var(--pri-footer-color);
+            width: 45%;
+            font-size: 2rem;
         }
 
         p {
-            font-size: 14px;
+            text-shadow: 0px 0px 4px var(--gray);
+            width: 40%;
+            font-size: 16px;
         }
+
     }
 
+
     .btn {
+        padding: .5rem;
+        font-size: 16px;
+        width: 110px;
+    }
+
+
+    .btn__con_RHS {
+        gap: 1rem;
+    }
+
+    .circled {
+        padding: .5rem;
+    }
+
+
+    .controls_btn {
+        padding: .5em;
+        font-size: 16px;
         width: 100px;
+        border-left: 4px solid rgba(255, 255, 255, 0.463);
     }
 }
 
-@include mixin.mobile {
+
+
+@include mixin.extra {
     .con {
-        padding: 1rem 0 .5rem 1rem;
-        height: 25vh;
-        bottom: 10vh !important;
-        
+        padding: 1rem 0 .5rem 3rem;
+        min-height: 25vh;
+        bottom: 30vh;
+        margin-top: 1rem;
 
         h1 {
-            font-size: 1rem !important;
-            width: 40%;
+            font-size: 3.5rem;
+            line-height: 1.1;
+            width: 45%;
         }
 
         p {
-            width: 45%;
+            width: 30%;
+            font-size: 1rem;
+            line-height: 1.4;
         }
     }
 
-    .btns__con {
-        margin-top: -2rem;
-    }
 
     .btn {
-        width: 40px;
-        font-size: 12px !important;
-        width: auto;
-        height: auto;
-        gap: .2rem;
+        width: 130px;
+        font-size: 18px;
+        gap: .3rem;
         padding: .5rem;
 
         .icon {
-            font-size: .5rem !important;
+            font-size: 18px !important;
         }
     }
 
     .btn__con_LHS {
-        gap: .5rem;
+        gap: .75rem;
+    }
+
+    .circled {
+        padding: .75rem;
     }
 
     .btn__con_RHS {
@@ -172,10 +198,10 @@
     }
 
     .controls_btn {
-        font-size: 14px;
-
-        padding: .3em;
-        border-left: none;
-        width: auto;
+        font-size: 18px;
+        padding: .5em;
+        border-left: 3px solid #fff;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
     }
 }

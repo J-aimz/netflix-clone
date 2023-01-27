@@ -1,17 +1,22 @@
 @use '../../mixin.scss' as mixin;
 
 .con {
-    flex: .5;
-    text-align: left;
-    // max-width: 555px;
+    width: 100%;
+    flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
     flex-direction: column;
-    // gap: .5rem;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
 
     &>h2 {
         margin-bottom: 1rem;
+        font-size: 1.3rem;
+    }
+
+    &>h5 {
+        text-align: center;
+        font-size: .9rem;
     }
 }
 
@@ -20,8 +25,36 @@
         flex: 1;
         align-items: center;
 
+        &>h2 {
+            margin-bottom: 1rem;
+            font-size: 2.3rem;
+        }
+
         &>h5 {
             text-align: center;
+            font-size: 1.4rem;
         }
     }
+}
+
+@include mixin.extra {
+    .con {
+        flex: .5;
+        text-align: left;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        max-width: 750px;
+
+        &>h2 {
+            margin-bottom: 1rem;
+        }
+
+        &>h5 {
+            text-align: left;
+            font-size: 1.4rem;
+        }
+    }
+
 }

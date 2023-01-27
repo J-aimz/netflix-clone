@@ -18,7 +18,13 @@ function Browse() {
   const [muteVideo, setMuteVideo] = useState(true)
   const randomNum =  Math.floor(Math.random() * 20)
 
-
+  // lock screen 
+  useEffect(() => {
+    const bodyDom = document.querySelector('body')
+    bodyDom.style.overflowY = movieData.openModal ? 'hidden' : 'scroll'
+  }, [movieData.openModal])
+ 
+  // fetch randome movie on load
   useEffect(() =>{
 
     async function getmovie() {
@@ -28,14 +34,10 @@ function Browse() {
     }
   
     getmovie()
+  }, [movieData])
 
-
-
-  }, [])
-
+  // fetch movie trailer
   useEffect(() =>{
-    
-        
     async function getTrailer() {
 
       await movieTrailer( movie.original_title || null, {tmdbId: movie.id})
@@ -48,18 +50,22 @@ function Browse() {
 
   }, [movie])
 
+
   const {clientHeight,  clientWidth} = con.current
 
   const styles = {
     heroBg : {
-      background: `url(${img_url + movie.backdrop_path || img_url + movie.poster_path})`
+      background: `url(${img_url + movie.backdrop_path || img_url + movie.poster_path})`,
+      backgroundPosition: 'center',
+      backgroundRepeat: 'noRepeat',
+      backgroundSize: 'cover'
     },
 
     videoCon: {
       width: `${clientWidth}px`,
       height: `${clientHeight}px`,
       display: movieIsReady ? 'block' : 'none'
-    }
+    },
 
   }
 

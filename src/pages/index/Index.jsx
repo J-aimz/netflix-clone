@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Accordion, Footer, Hero, NavBar, SectionHeader } from '../../components'
+import { Accordion, Footer, Hero, IndexSignupForm, NavBar, SectionHeader } from '../../components'
 import Button from '@mui/material/Button';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
@@ -35,7 +35,7 @@ function Index() {
       <header>
         <div className={css.overlay}>
           <NavBar location='index'/>
-          <Hero locale={locale} />
+          <Hero />
         </div>
       </header>
 
@@ -59,7 +59,6 @@ function Index() {
 
             </div>
           </div>
-
         </section>
 
         {/* section two */}
@@ -109,28 +108,14 @@ function Index() {
         {/* section five (FAQ) */}
         <section className={`${css.section_five} index-sections`}>
           <div className={css.section_five_con}>
-            <h2>Frequently Asked Questions</h2>
+            <SectionHeader header='Frequently Asked Questions'/>
 
             <div className={css.accordion}>
               <Accordion />
             </div>
 
             <h5>Ready to watch? Enter your email to create or restart your membership.</h5>
-            <div className={css.inputs_con}>
-              <input 
-                type="email" 
-                value={state.email}
-                name='email'
-                placeholder='Email address'
-                onChange={(e) =>dispatch({type: 'email', payload: e.target.value})}
-              />
-
-              <Button variant="contained" className={css.btn}>
-                <span>Get Started</span> 
-                  <ArrowForwardIosIcon className={css.icon}/>
-
-              </Button>
-            </div>
+              <IndexSignupForm/>
           </div>
         </section>
 

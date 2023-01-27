@@ -5,6 +5,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    min-height: 70vh;
      
     small {
         font-size: 14px;
@@ -139,13 +140,6 @@
 
 }
 
-@include mixin.large {
-    .features {
-        gap: 1.7rem;
-        flex: 1;
-    }
-}
-
 
 @include mixin.mobile {
 
@@ -165,7 +159,7 @@
     .gap {
         flex: 1;
     }
-    
+
     .body__item_con {
         gap: .3rem;
 
@@ -194,5 +188,14 @@
         display: none;
     }
 
-   
+
 }
+
+
+@include mixin.large {
+    .features {
+        gap: 1.7rem;
+        flex: 1;
+    }
+}
+

@@ -6,9 +6,30 @@ import TabletAndroidIcon from '@mui/icons-material/TabletAndroid';
 import ComputerIcon from '@mui/icons-material/Computer';
 import TvIcon from '@mui/icons-material/Tv';
 import { Link } from 'react-router-dom';
+import { useRef, useState } from 'react';
+
+function PriceContainer(props) {
+  const refName = useRef(props.title)
+  return (
+    <div ref={refName} className={css.plan_btn}>
+      <span>{props.title}</span>
+    </div>
+  )
+}
 
 function SignupThree() {
- 
+
+  const [selectedPlan, setSelectedPlan] = useState({
+    mobile: false,
+    basic: false,
+    standard: false,
+    premium: true
+  })
+
+  const plans = ['mobile', 'basic', 'standard', 'premium']
+
+
+
   return (
     <>
       <NavBar location='signup' />
@@ -41,18 +62,12 @@ function SignupThree() {
             <div className={css.top_con}>
               <div className={css.gap_top}></div>
 
-              <div className={css.plan_btn}>
-                <span>mobile</span>
-              </div>
-              <div className={css.plan_btn}>
-                <span>basic</span>
-              </div>
-              <div className={css.plan_btn}>
-                <span>standard</span>
-              </div>
-              <div className={css.plan_btn}>
-                <span>premium</span>
-              </div>
+              {
+                plans.map((plan, index) => (
+                  <PriceContainer key={index} title={plan} />
+                ))
+              }
+
             </div>
 
             <div className={css.body}>
@@ -97,7 +112,7 @@ function SignupThree() {
                 </div>
               </div>
 
-              
+
               <div className={css.body__item_con}>
                 <p className={css.gap}></p>
                 <div className={css.features}>
