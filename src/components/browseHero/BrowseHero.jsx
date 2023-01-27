@@ -9,6 +9,7 @@ import { useState } from 'react';
 
 function BrowseHero(props) {
   const [mute, setMute] = useState(false)
+ 
 
   function returnFixedNumOfWordsForOverview(str = '') {
     let newStr
@@ -27,11 +28,13 @@ function BrowseHero(props) {
     
   }
 
+ 
+
   return (
     <div className={css.con}>
       
-      <h1>{returnFixedNumOfWordsForMovieTitle(props.movieTitle)}</h1>
-      <p>{returnFixedNumOfWordsForOverview(props.overview)}</p>
+      <h className={animations ? css.scale_down_left : css.scale_up_left }>{returnFixedNumOfWordsForMovieTitle(props.movieTitle)}</h>
+      <p className={css}>{returnFixedNumOfWordsForOverview(props.overview)}</p>
 
       <div className={css.btns__con}>
         <div className={css.btn__con_LHS}>
