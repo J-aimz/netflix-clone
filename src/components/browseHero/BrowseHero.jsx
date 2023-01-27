@@ -20,6 +20,7 @@ function BrowseHero(props) {
     
     return str
   }
+  
   function returnFixedNumOfWordsForMovieTitle(str='') {
     // chk if string has a subtiltle which is seperated by ':' and return the first item 
     let title = str.split(':')
@@ -33,8 +34,8 @@ function BrowseHero(props) {
   return (
     <div className={css.con}>
       
-      <h className={animations ? css.scale_down_left : css.scale_up_left }>{returnFixedNumOfWordsForMovieTitle(props.movieTitle)}</h>
-      <p className={css}>{returnFixedNumOfWordsForOverview(props.overview)}</p>
+      <h>{returnFixedNumOfWordsForMovieTitle(props.movieTitle)}</h>
+      <p>{returnFixedNumOfWordsForOverview(props.overview)}</p>
 
       <div className={css.btns__con}>
         <div className={css.btn__con_LHS}>
